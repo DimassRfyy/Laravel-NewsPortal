@@ -1,0 +1,220 @@
+/* Styles untuk Category Swiper */
+.category-section .swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.category-section .swiper-slide {
+    text-align: center;
+    width: auto !important;
+}
+
+.category-section .swiper-button-next,
+.category-section .swiper-button-prev {
+    color: #c90000;
+    background: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-section .swiper-button-next:after,
+.category-section .swiper-button-prev:after {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    .category-section .swiper-button-next,
+    .category-section .swiper-button-prev {
+        display: none;
+    }
+}
+
+/* Styles untuk News Swiper */
+.news-section .news-swiper {
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.news-section .swiper-slide {
+    width: 280px;
+    height: auto;
+}
+
+.news-section .hot-news-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    background-color: #c90000;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.news-section .news-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 16/9;
+}
+
+.news-section .news-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.news-section .news-card:hover .news-image {
+    transform: scale(1.05);
+}
+
+.news-section .swiper-pagination-bullet-active {
+    background-color: #c90000;
+}
+
+.news-section .swiper-button-next,
+.news-section .swiper-button-prev {
+    color: #c90000;
+    background: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-section .swiper-button-next:after,
+.news-section .swiper-button-prev:after {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@media (max-width: 640px) {
+    .news-section .swiper-slide {
+        width: 240px;
+    }
+}
+
+/* Style untuk Thumbnail Swiper */
+.thumbnail-swiper {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.thumbnail-swiper .swiper-slide {
+    width: 100%;
+    height: auto;
+}
+
+.thumbnail-swiper img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* Tombol Navigasi */
+.thumbnail-swiper-button-next,
+.thumbnail-swiper-button-prev {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.thumbnail-swiper-button-next:hover,
+.thumbnail-swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .thumbnail-swiper-button-next,
+    .thumbnail-swiper-button-prev {
+        display: none !important;
+    }
+}
+
+.newswriter-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+}
+
+.newswriter-swiper .swiper-pagination-bullet {
+    background-color: gray !important;
+    opacity: 0.6;
+}
+
+.newswriter-swiper .swiper-pagination-bullet-active {
+    background-color: red !important;
+    opacity: 1;
+}
+
+/* Style untuk Thumbnail Swiper */
+.thumbnail-swiper {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.thumbnail-swiper .swiper-slide {
+    width: 100%;
+    height: auto;
+}
+
+.thumbnail-swiper img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* Tombol Navigasi */
+.thumbnail-swiper-button-next,
+.thumbnail-swiper-button-prev {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.thumbnail-swiper-button-next:hover,
+.thumbnail-swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+
+    .thumbnail-swiper-button-next,
+    .thumbnail-swiper-button-prev {
+        display: none !important;
+    }
+}
+
+.newswriter-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 10px;
+}
+
+.newswriter-swiper .swiper-pagination-bullet {
+    background-color: gray !important;
+    opacity: 0.6;
+}
+
+.newswriter-swiper .swiper-pagination-bullet-active {
+    background-color: red !important;
+    opacity: 1;
+}
