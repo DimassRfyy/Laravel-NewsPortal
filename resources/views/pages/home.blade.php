@@ -6,57 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.css">
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     @endpush
-    <nav class="fixed top-0 left-0 w-full bg-[#c90000] text-white p-4 shadow-md z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <img src="assets/images/icons/logo.png" class="object-cover h-10 md:h-12" alt="logo">
-
-            <div class="hidden md:flex items-center bg-white text-black rounded-lg overflow-hidden w-1/3">
-                <input type="text" class="p-2 w-full focus:outline-none" placeholder="Cari berita...">
-                <button class="p-2 bg-black text-white">Cari</button>
-            </div>
-
-            <div class="hidden md:flex gap-2 items-center">
-                <div class="flex gap-3 mx-5">
-                    <a href="https://instagram.com/dimass_rfyy" target="_blank">
-                        <img src="assets/images/icons/instagram.svg" class="w-6" alt="Instagram">
-                    </a>
-                    <a href="https://wa.me/6282130869378" target="_blank">
-                        <img src="assets/images/icons/whatsapp.svg" class="w-6" alt="WhatsApp">
-                    </a>
-                    <a href="https://www.facebook.com/dimas.rafi.522066?locale=id_ID" target="_blank">
-                        <img src="assets/images/icons/facebook.svg" class="w-6" alt="Facebook">
-                    </a>
-                </div>
-                <a href="#" class="bg-white text-[#c90000] px-4 py-2 rounded-lg">Login</a>
-                <a href="#" class="bg-black px-4 py-2 rounded-lg">Register</a>
-            </div>
-
-            <button id="menu-btn" class="md:hidden text-white text-2xl">☰</button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden flex flex-col items-center bg-white text-black p-4 rounded-2xl mt-5">
-            <input type="text" class="p-2 w-full border border-gray-300 rounded-lg" placeholder="Cari berita...">
-            <button class="p-2 bg-black text-white w-full mt-2">Cari</button>
-            <div class="flex gap-3 mt-3">
-                <a href="#" class="block bg-[#c90000] text-white px-4 py-2 rounded-lg mt-2">Login</a>
-                <a href="#" class="block bg-black text-white px-4 py-2 rounded-lg mt-2">Register</a>
-            </div>
-            <!-- Social Media Icons in Mobile Menu -->
-            <div class="flex gap-3 mt-3">
-                <a href="https://instagram.com/dimass_rfyy" target="_blank">
-                    <img src="assets/images/icons/instagram.svg" class="w-6" alt="Instagram">
-                </a>
-                <a href="https://wa.me/6282130869378" target="_blank">
-                    <img src="assets/images/icons/whatsapp.svg" class="w-6" alt="WhatsApp">
-                </a>
-                <a href="https://www.facebook.com/dimas.rafi.522066?locale=id_ID" target="_blank">
-                    <img src="assets/images/icons/facebook.svg" class="w-6" alt="Facebook">
-                </a>
-            </div>
-        </div>
-    </nav>
+    <x-navbar />
 
     <div class="pt-16"></div>
 
@@ -65,7 +15,7 @@
             <div class="swiper categorySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <a href="#"
+                        <a href="/category"
                             class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
                             <div class="w-6 h-6 flex shrink-0">
                                 <img src="assets/images/icons/global.svg" alt="icon" />
@@ -75,7 +25,7 @@
                     </div>
 
                     <div class="swiper-slide">
-                        <a href="#"
+                        <a href="/search"
                             class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
                             <div class="w-6 h-6 flex shrink-0">
                                 <img src="assets/images/icons/heart.svg" alt="icon" />
@@ -151,7 +101,7 @@
         <div class="thumbnail-swiper swiper relative">
             <div class="swiper-wrapper gap-1">
                 <div class="swiper-slide">
-                    <div class="relative">
+                    <a href="/details" class="relative">
                         <div class="w-full h-auto overflow-hidden">
                             <img src="assets/images/photos/berita4.png" alt="Berita 1"
                                 class="w-full h-auto object-cover">
@@ -164,7 +114,7 @@
                                 15 orang</h3>
                             <p class="text-sm text-gray-300">5 menit yang lalu</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="swiper-slide">
@@ -447,7 +397,7 @@
             <div class="swiper categorySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <a href="#"
+                        <a href="/hashtag"
                             class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
                             <div class="w-6 h-6 flex shrink-0">
                                 <img src="assets/images/icons/hashtag.png" alt="icon" />
@@ -515,13 +465,13 @@
         <div class="newswriter-swiper swiper">
             <div class="swiper-wrapper mb-5">
                 <div class="swiper-slide">
-                    <div
+                    <a href="/writer"
                         class="flex flex-col items-center bg-white shadow-md rounded-2xl p-4 hover:border-2 hover:border-[#c90000]">
                         <img src="assets/images/photos/arle2.jpg" alt="Writer 1"
                             class="w-20 h-20 rounded-full object-cover">
                         <h3 class="text-lg font-semibold mt-2">John Doe</h3>
                         <p class="text-sm text-gray-600">15 News</p>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="swiper-slide">
@@ -658,55 +608,7 @@
         </div>
     </section>
 
-    <footer class="py-10 bg-[#c90000] text-white">
-        <div class="max-w-6xl mx-auto px-6 md:px-12">
-            <div class="flex flex-col md:flex-row gap-10 md:gap-16">
-                <div class="flex flex-col gap-6 w-full max-w-[349px] items-start">
-                    <img src='assets/images/icons/logo.png' class="h-12 w-auto flex shrink-0" alt="logo">
-                    <p class="font-medium leading-[25px] text-patungan-grey">NewsPortal adalah Lorem ipsum dolor sit
-                        amet consectetur adipisicing elit. Quisquam ut ex ea. Explicabo rerum quisquam ab aspernatur
-                        iure eveniet consectetur.</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-10 w-full">
-                    <div>
-                        <p class="font-semibold mb-3">Popular Services</p>
-                        <ul class="space-y-2 text-sm md:text-base">
-                            <li><a href="#" class="hover:text-gray-300 transition">Home</a></li>
-                            <li><a href="#Our-Services" class="hover:text-gray-300 transition">Layanan</a></li>
-                            <li><a href="#How-It-Works" class="hover:text-gray-300 transition">Laporkan hoax</a></li>
-                            <li><a href="#Happy-Customer" class="hover:text-gray-300 transition">Dukungan</a></li>
-                            <li><a href="#FAQ" class="hover:text-gray-300 transition">FAQ</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="font-semibold mb-3">Company</p>
-                        <ul class="space-y-2 text-sm md:text-base">
-                            <li><a href="#" class="hover:text-gray-300 transition">About Us</a></li>
-                            <li><a href="#" class="hover:text-gray-300 transition">Our Contact</a></li>
-                            <li><a href="#" class="hover:text-gray-300 transition">Term Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div
-                class="border-t border-gray-400 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-200">
-                <p>©2025 NewsPortal. All Rights Reserved</p>
-                <div class="flex gap-4 my-4 md:my-0">
-                    <a href="https://instagram.com/dimass_rfyy" target="_blank">
-                        <img src="{{asset('assets/images/icons/instagram.svg')}}" class="w-6" alt="icon">
-                    </a>
-                    <a href="https://wa.me/6282130869378" target="_blank">
-                        <img src="{{asset('assets/images/icons/whatsapp.svg')}}" class="w-6" alt="icon">
-                    </a>
-                    <a href="https://www.facebook.com/dimas.rafi.522066?locale=id_ID">
-                        <img src="{{asset('assets/images/icons/facebook.svg')}}" class="w-6" alt="icon">
-                    </a>
-                </div>
-                <a href="#" class="hover:text-gray-300 transition">Terms & Conditions</a>
-            </div>
-        </div>
-    </footer>
-
+    <x-footer />
     @push('scripts')
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.js"></script>
