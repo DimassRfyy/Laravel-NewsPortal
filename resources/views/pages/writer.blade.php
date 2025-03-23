@@ -30,7 +30,7 @@
                     <li>
                         <div class="flex items-center">
                             <span class="mx-2 text-gray-400">&gt;</span>
-                            <span class="text-sm md:text-base font-medium text-[#c90000]">Ahmad Dhani</span>
+                            <span class="text-sm md:text-base font-medium text-[#c90000]">Vanica Laras</span>
                         </div>
                     </li>
                 </ol>
@@ -47,7 +47,7 @@
                     <img src="assets/images/photos/profile3.jpg" class="w-full h-full object-cover" alt="Writer Profile">
                 </div>
                 <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-3xl font-bold mb-2">Ahmad Dhani</h1>
+                    <h1 class="text-3xl font-bold mb-2">Vanica Laras</h1>
                     <p class="text-gray-500 mb-4">Senior Journalist - Entertainment</p>
                     <p class="text-gray-700 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac enim vel magna sollicitudin feugiat. Aenean vehicula, velit in commodo luctus, mi nisi pulvinar ligula, sit amet vehicula magna est ac eros.</p>
                     <div class="flex gap-4 justify-center md:justify-start">
