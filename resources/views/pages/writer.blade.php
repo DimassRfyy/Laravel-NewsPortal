@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-default>
     <x-slot:title>
         Writer Profile
     </x-slot:title>
@@ -39,7 +39,6 @@
         </div>
     </div>
 
-    <!-- Writer Profile Section -->
     <section id="writer-profile" class="max-w-[1130px] mx-auto px-4 md:px-0 my-8">
         <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
             <div class="flex flex-col md:flex-row gap-6 items-center md:items-start">
@@ -63,7 +62,6 @@
         </div>
     </section>
 
-    <!-- Writer's Latest Article -->
     <section id="writer-latest-article" class="max-w-[1130px] mx-auto px-4 md:px-0 mb-8">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-black border-l-4 border-[#c90000] pl-3">Latest Article</h2>
@@ -87,7 +85,6 @@
         </div>
     </section>
 
-    <!-- Writer's Articles -->
     <section id="writer-articles" class="max-w-[1130px] mx-auto px-4 md:px-0 mb-12">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-black border-l-4 border-[#c90000] pl-3">All Articles</h2>
@@ -107,7 +104,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Article Card 1 -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                 <div class="h-48 overflow-hidden">
                     <img src="assets/images/photos/berita1.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Article">
@@ -126,7 +122,6 @@
                 </div>
             </div>
 
-            <!-- Article Card 2 -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                 <div class="h-48 overflow-hidden">
                     <img src="assets/images/photos/berita2.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Article">
@@ -145,7 +140,6 @@
                 </div>
             </div>
 
-            <!-- Article Card 3 -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                 <div class="h-48 overflow-hidden">
                     <img src="assets/images/photos/berita3.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Article">
@@ -164,7 +158,6 @@
                 </div>
             </div>
 
-            <!-- Article Card 4 -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                 <div class="h-48 overflow-hidden">
                     <img src="assets/images/photos/berita4.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Article">
@@ -183,7 +176,6 @@
                 </div>
             </div>
 
-            <!-- Article Card 5 -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                 <div class="h-48 overflow-hidden">
                     <img src="assets/images/photos/berita1.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Article">
@@ -202,7 +194,6 @@
                 </div>
             </div>
 
-            <!-- Article Card 6 -->
             <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
                 <div class="h-48 overflow-hidden">
                     <img src="assets/images/photos/berita2.png" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" alt="Article">
@@ -222,7 +213,6 @@
             </div>
         </div>
 
-        <!-- Pagination -->
         <div class="mt-10 flex justify-center">
             <nav class="inline-flex">
                 <a href="#" class="px-4 py-2 border border-gray-300 rounded-l-lg bg-white text-gray-700 hover:bg-gray-50">
@@ -249,4 +239,4 @@
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.js"></script>
     @endpush
-</x-app-layout>
+</x-app-default>

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-default>
     <x-slot:title>
         Search Results
     </x-slot:title>
@@ -203,4 +203,4 @@
         <script src="{{ asset('js/home.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.js"></script>
     @endpush
-</x-app-layout>
+</x-app-default>

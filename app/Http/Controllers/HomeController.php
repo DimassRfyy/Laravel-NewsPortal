@@ -10,14 +10,6 @@ class HomeController extends Controller
         return view('pages.home');
     }
 
-    public function login() {
-        return view('pages.login');
-    }
-
-    public function register() {
-        return view('pages.register');
-    }
-
     public function category() {
         return view('pages.category');
     }
