@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'telp',
+        'role',
+        'occupation',
+        'about',
     ];
 
     /**
@@ -44,5 +49,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function newsComments()
+    {
+        return $this->belongsToMany(NewsComment::class, 'user_news_comment', 'user_id', 'news_comment_id');
     }
 }
