@@ -1,12 +1,31 @@
-document.getElementById('menu-btn').addEventListener('click', function () {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const closeSidebar = document.getElementById('close-sidebar');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    const sidebarOverlay = document.getElementById('sidebar-overlay');
+    
+    // Open sidebar
+    sidebarToggle.addEventListener('click', function() {
+        sidebarMenu.classList.remove('translate-x-full');
+        sidebarOverlay.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+    });
+    
+    // Close sidebar
+    function closeSidebarMenu() {
+        sidebarMenu.classList.add('translate-x-full');
+        sidebarOverlay.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+    
+    closeSidebar.addEventListener('click', closeSidebarMenu);
+    sidebarOverlay.addEventListener('click', closeSidebarMenu);
 });
 
 document.addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper(".categorySwiper", {
         slidesPerView: "auto",
         spaceBetween: 16,
-        loop: true,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",

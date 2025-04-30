@@ -14,85 +14,18 @@
         <div class="max-w-[1330px] mx-auto mt-[30px] px-4">
             <div class="swiper categorySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="/category"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/global.svg" alt="icon" />
-                            </div>
-                            <span>Entertainment</span>
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="/search"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/heart.svg" alt="icon" />
-                            </div>
-                            <span>Healty</span>
-                        </a>
-                    </div>
-
+                    @foreach ($categories as $category)
                     <div class="swiper-slide">
                         <a href="#"
                             class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
                             <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/courthouse.svg" alt="icon" />
+                                <img src="{{ Storage::url($category->icon) }}" alt="icon" />
                             </div>
-                            <span>Politic</span>
+                            <span>{{ $category->name }}</span>
                         </a>
                     </div>
-
-                    <div class="swiper-slide">
-                        <a href="#"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/coffee.svg" alt="icon" />
-                            </div>
-                            <span>Kuliner</span>
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/global.svg" alt="icon" />
-                            </div>
-                            <span>Fashion</span>
-                        </a>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <a href="#"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/global.svg" alt="icon" />
-                            </div>
-                            <span>Kesehatan</span>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/global.svg" alt="icon" />
-                            </div>
-                            <span>Kesehatan</span>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#"
-                            class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
-                            <div class="w-6 h-6 flex shrink-0">
-                                <img src="assets/images/icons/global.svg" alt="icon" />
-                            </div>
-                            <span>Kesehatan</span>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
-
             </div>
         </div>
     </section>
