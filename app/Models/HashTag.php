@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class HashTag extends Model
 {
@@ -16,5 +17,11 @@ class HashTag extends Model
     public function articleNews()
     {
         return $this->belongsToMany(ArticleNews::class, 'article_news_hash_tag', 'hash_tag_id', 'article_news_id');
+    }
+    
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
     }
 }

@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(NewsComment::class, 'user_news_comment', 'user_id', 'news_comment_id');
     }
+
+    public function articleNews()
+    {
+        return $this->hasMany(ArticleNews::class);
+    }
 }
