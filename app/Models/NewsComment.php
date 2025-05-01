@@ -12,13 +12,13 @@ class NewsComment extends Model
         'message',
     ];
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_news_comment', 'news_comment_id', 'user_id');
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function articleNews()
+    {
+        return $this->belongsTo(ArticleNews::class);
     }
 }

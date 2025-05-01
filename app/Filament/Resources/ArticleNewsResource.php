@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ArticleNewsResource\Pages;
 use App\Filament\Resources\ArticleNewsResource\RelationManagers;
+use App\Filament\Resources\ArticleNewsResource\RelationManagers\NewsCommentsRelationManager;
 use App\Models\ArticleNews;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -56,6 +57,7 @@ class ArticleNewsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        ->modifyQueryUsing(fn ($query) => $query->withCount('newsComments'))
             ->columns([
                 Tables\Columns\ImageColumn::make('thumbnail')
                     ->searchable(),
@@ -71,6 +73,10 @@ class ArticleNewsResource extends Resource
                 Tables\Columns\IconColumn::make('is_published')
                     ->boolean()
                     ->label('Published'),
+                Tables\Columns\TextColumn::make('news_comments_count')
+                    ->label('Comments')
+                    ->counts('newsComments')
+                    ->sortable(),                
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -81,7 +87,16 @@ class ArticleNewsResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name')
+                    ->placeholder('Semua Kategori'),
+            
+                Tables\Filters\TernaryFilter::make('is_publish')
+                    ->label('Status Publikasi')
+                    ->placeholder('Semua')
+                    ->trueLabel('Dipublikasikan')
+                    ->falseLabel('Tidak Dipublikasikan'),
             ])
             ->actions([
                 ActionGroup::make([
@@ -104,7 +119,7 @@ class ArticleNewsResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            NewsCommentsRelationManager::class,
         ];
     }
 

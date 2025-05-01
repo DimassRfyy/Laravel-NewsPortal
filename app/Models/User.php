@@ -53,8 +53,9 @@ class User extends Authenticatable
 
     public function newsComments()
     {
-        return $this->belongsToMany(NewsComment::class, 'user_news_comment', 'user_id', 'news_comment_id');
+        return $this->hasMany(NewsComment::class);
     }
+
 
     public function articleNews()
     {

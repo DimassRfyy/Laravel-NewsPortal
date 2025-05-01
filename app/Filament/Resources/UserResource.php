@@ -51,7 +51,6 @@ class UserResource extends Resource
                     ])
                     ->required(),
                 Forms\Components\TextInput::make('occupation')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('about'),
             ]);

@@ -39,6 +39,7 @@ class HashTagResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->prefix('#')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_trending')
                     ->boolean(),
