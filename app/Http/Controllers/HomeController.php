@@ -33,8 +33,10 @@ class HomeController extends Controller
         return view('pages.hashtag');
     }
 
-    public function writer() {
-        return view('pages.writer');
+    public function writer(User $user) {
+        $articles = ArticleNews::with(['category', 'hashTags'])->where('user_id', $user->id)->latest()->paginate(3);
+        $popularArticles = ArticleNews::with(['category', 'hashTags'])->where('user_id', $user->id)->where('is_popular', true)->latest()->first();
+        return view('pages.writer', compact('user','articles','popularArticles'));
     }
 
     public function details() {

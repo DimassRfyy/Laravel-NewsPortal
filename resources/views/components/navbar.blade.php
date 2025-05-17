@@ -81,13 +81,13 @@
     
     <div class="flex gap-4 justify-center mt-4">
         <a href="https://instagram.com/dimass_rfyy" target="_blank">
-            <img src="assets/images/icons/instagram.svg" class="w-6" alt="Instagram">
+            <img src="{{ asset('assets/images/icons/instagram.svg') }}" class="w-6" alt="Instagram">
         </a>
         <a href="https://wa.me/6282130869378" target="_blank">
-            <img src="assets/images/icons/whatsapp.svg" class="w-6" alt="WhatsApp">
+            <img src="{{ asset('assets/images/icons/whatsapp.svg') }}" class="w-6" alt="WhatsApp">
         </a>
         <a href="https://www.facebook.com/dimas.rafi.522066?locale=id_ID" target="_blank">
-            <img src="assets/images/icons/facebook.svg" class="w-6" alt="Facebook">
+            <img src="{{ asset('assets/images/icons/facebook.svg') }}" class="w-6" alt="Facebook">
         </a>
     </div>
 </div>

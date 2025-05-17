@@ -138,7 +138,7 @@
                                             <p>{{ $article->title }}</p>
                                         </h3>
                                         <p class="text-gray-600 text-sm line-clamp-2">
-                                            {{ \Illuminate\Support\Str::limit(html_entity_decode(strip_tags($article->content)), 150) }}
+                                            {{ Str::limit(html_entity_decode(strip_tags($article->content)), 150) }}
                                         </p>
                                     </div>
                                 </div>
@@ -177,7 +177,7 @@
             <div class="swiper-wrapper mb-5">
                 @foreach ($newsWriters as $newsWriter)
                     <div class="swiper-slide">
-                        <a href="/writer"
+                        <a href="{{ route('writer', $newsWriter->id) }}"
                             class="flex flex-col items-center bg-white shadow-md rounded-2xl p-4 hover:border-1 border-1 border-gray-600 hover:border-[#c90000]">
                             <img src="{{ Storage::url($newsWriter->avatar) }}" alt="Writer 1"
                                 class="w-20 h-20 rounded-full object-cover">
