@@ -51,6 +51,9 @@ class ArticleNewsResource extends Resource
                     ->multiple(),
                 Forms\Components\Toggle::make('is_published')
                     ->required(),
+                Forms\Components\Toggle::make('is_popular')
+                    ->default(false)
+                    ->label('Popular'),
             ]);
     }
 
@@ -73,6 +76,9 @@ class ArticleNewsResource extends Resource
                 Tables\Columns\IconColumn::make('is_published')
                     ->boolean()
                     ->label('Published'),
+                Tables\Columns\IconColumn::make('is_popular')
+                    ->boolean()
+                    ->label('Popular'),
                 Tables\Columns\TextColumn::make('news_comments_count')
                     ->label('Comments')
                     ->counts('newsComments')

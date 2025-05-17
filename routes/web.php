@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/category', [HomeController::class, 'category'])->name('category');
+Route::get('/category/{category:slug}', [HomeController::class, 'category'])->name('category');
 Route::get('/hashtag', [HomeController::class, 'hashtag'])->name('hashtag');
 Route::get('/writer', [HomeController::class, 'writer'])->name('writer');
 Route::get('/details', [HomeController::class, 'details'])->name('details');

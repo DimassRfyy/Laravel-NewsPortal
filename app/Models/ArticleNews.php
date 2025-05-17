@@ -13,6 +13,7 @@ class ArticleNews extends Model
         'thumbnail',
         'content',
         'is_published',
+        'is_popular',
         'category_id',
         'user_id',
     ];

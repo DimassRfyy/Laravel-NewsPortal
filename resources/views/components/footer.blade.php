@@ -2,7 +2,7 @@
     <div class="max-w-6xl mx-auto px-6 md:px-12">
         <div class="flex flex-col md:flex-row gap-10 md:gap-16">
             <div class="flex flex-col gap-6 w-full max-w-[349px] items-start">
-                <img src='assets/images/icons/logo.png' class="h-12 w-auto flex shrink-0" alt="logo">
+                <img src='{{ asset('assets/images/icons/logo.png') }}' class="h-12 w-auto flex shrink-0" alt="logo">
                 <p class="font-medium leading-[25px] text-patungan-grey">NewsPortal adalah Lorem ipsum dolor sit
                     amet consectetur adipisicing elit. Quisquam ut ex ea. Explicabo rerum quisquam ab aspernatur
                     iure eveniet consectetur.</p>

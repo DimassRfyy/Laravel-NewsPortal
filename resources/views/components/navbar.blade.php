@@ -1,6 +1,6 @@
 <nav class="fixed top-0 left-0 w-full bg-[#c90000] text-white p-4 shadow-md z-50">
     <div class="container mx-auto flex justify-between items-center">
-        <a href="{{ route('home') }}"><img src="assets/images/icons/logo.png" class="object-cover h-10 md:h-12"
+        <a href="{{ route('home') }}"><img src="{{ asset('assets/images/icons/logo.png') }}" class="object-cover h-10 md:h-12"
                 alt="logo"></a>
 
         <div class="hidden md:flex items-center bg-white text-black rounded-lg overflow-hidden w-1/3">
@@ -11,24 +11,22 @@
         <div class="hidden md:flex gap-2 items-center">
             <div class="flex gap-3 mx-5">
                 <a href="https://instagram.com/dimass_rfyy" target="_blank">
-                    <img src="assets/images/icons/instagram.svg" class="w-6" alt="Instagram">
+                    <img src="{{ asset('assets/images/icons/instagram.svg') }}" class="w-6" alt="Instagram">
                 </a>
                 <a href="https://wa.me/6282130869378" target="_blank">
-                    <img src="assets/images/icons/whatsapp.svg" class="w-6" alt="WhatsApp">
+                    <img src="{{ asset('assets/images/icons/whatsapp.svg') }}" class="w-6" alt="WhatsApp">
                 </a>
                 <a href="https://www.facebook.com/dimas.rafi.522066?locale=id_ID" target="_blank">
-                    <img src="assets/images/icons/facebook.svg" class="w-6" alt="Facebook">
+                    <img src="{{ asset('assets/images/icons/facebook.svg') }}" class="w-6" alt="Facebook">
                 </a>
             </div>
             @if(Auth::check())
                 <div class="flex items-center gap-3">
-                    <a href="">
-                        <img src="{{ Auth::user()->profile_picture ?? asset('assets/images/photos/arle2.jpg') }}"
+                        <img src="{{ Storage::url(Auth::user()->avatar) ?? asset('assets/images/photos/arle2.jpg') }}"
                             alt="Profile" class="w-10 h-10 rounded-full object-cover">
-                    </a>
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
-                        <button type="submit" class="block bg-white text-black px-4 py-2 rounded-lg">
+                        <button type="submit" class="block bg-white text-black px-4 py-2 rounded-lg cursor-pointer">
                             Logout
                         </button>
                     </form>

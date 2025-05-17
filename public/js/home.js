@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var newsSwiper = new Swiper(".news-swiper", {
         slidesPerView: "auto",
         spaceBetween: 20,
-        loop: true,
         grabCursor: true,
         pagination: {
             el: ".swiper-pagination",
@@ -104,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     var newsWriterSwiper = new Swiper(".newswriter-swiper", {
-        loop: true,
         spaceBetween: 20,
         slidesPerView: 2,
         pagination: {
