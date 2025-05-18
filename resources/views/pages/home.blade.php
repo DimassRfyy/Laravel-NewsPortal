@@ -35,7 +35,7 @@
             <div class="swiper-wrapper">
                 @foreach ($populerArticles as $article)
                     <div class="swiper-slide">
-                        <a href="/details" class="relative">
+                        <a href="{{ route('details', $article->slug) }}" class="relative">
                             <div class="w-full h-auto overflow-hidden">
                                 <img src="{{ Storage::url($article->thumbnail) }}" alt="Berita 1"
                                     class="w-full h-auto object-cover">
@@ -79,7 +79,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($newsArticles as $newsArticle)
                         <div class="swiper-slide">
-                            <a href="">
+                            <a href="{{ route('details', $newsArticle->slug) }}">
                                 <div class="news-card bg-white rounded-lg shadow-sm overflow-hidden">
                                     <div class="news-image-wrapper">
                                         <div class="hot-news-badge">Hot News</div>
@@ -97,7 +97,7 @@
                                             <p>{{ $newsArticle->title }}</p>
                                         </h3>
                                         <p class="text-gray-600 text-sm line-clamp-2">
-                                            {{ \Illuminate\Support\Str::limit(html_entity_decode(strip_tags($newsArticle->content)), 150) }}
+                                            {{ Str::limit(html_entity_decode(strip_tags($newsArticle->content)), 150) }}
                                         </p>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($populerArticles as $article)
                         <div class="swiper-slide">
-                            <a href="">
+                            <a href="{{ route('details', $article->slug) }}">
                                 <div class="news-card bg-white rounded-lg shadow-sm overflow-hidden">
                                     <div class="news-image-wrapper">
                                         <div class="hot-news-badge">Hot News</div>
@@ -211,7 +211,7 @@
                     <div class="w-full h-full bg-gradient-to-b from-transparent to-black absolute z-10"></div>
                     <div class="absolute bottom-0 p-6 text-white z-20">
                         <p>Terbaru</p>
-                        <a href="#" class="font-bold text-xl md:text-2xl hover:underline transition-all duration-300">
+                        <a href="{{ route('details', $featuredTech->slug) }}" class="font-bold text-xl md:text-2xl hover:underline transition-all duration-300">
                             {{ $featuredTech->title }}
                         </a>
                         <p class="text-sm">{{ $featuredTech->created_at->format('M d, Y') }}</p>
@@ -221,7 +221,7 @@
             <div class="h-96 w-full md:w-[40%] overflow-y-auto custom-scrollbar">
                 <div class="flex flex-col gap-5">
                     @foreach ($technologyArticles->skip(1) as $technology)
-                        <a href="#" class="block">
+                        <a href="{{ route('details', $technology->slug) }}" class="block">
                             <div
                                 class="flex items-center gap-4 p-4 border border-[#c90000] rounded-2xl transition-all duration-300">
                                 <div class="w-32 h-24 rounded-xl overflow-hidden">

@@ -64,11 +64,11 @@
         </div>
     </section>
 
+    @if ($popularArticles)
     <section id="writer-latest-article" class="max-w-[1130px] mx-auto px-4 md:px-0 mb-8">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-black border-l-4 border-[#c90000] pl-3">Populer Article</h2>
         </div>
-        @if ($popularArticles)
             <div class="relative w-full h-96 md:h-[450px] rounded-2xl overflow-hidden">
                 <img src="{{ Storage::url($popularArticles->thumbnail) }}" class="absolute w-full h-full object-cover"
                     alt="Latest Article" />
@@ -83,7 +83,7 @@
                         {{ $popularArticles->title }}
                     </a>
                     <p class="text-gray-200 mb-4 hidden md:block">{{ Str::limit(html_entity_decode(strip_tags($popularArticles->content)), 150) }}</p>
-                    <a href="#"
+                    <a href="{{ route('details', $popularArticles->slug) }}"
                         class="inline-block bg-[#c90000] text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors">
                         Read More
                     </a>
@@ -92,6 +92,7 @@
         @endif
     </section>
 
+    @if ($articles->count() > 0)
     <section id="writer-articles" class="max-w-[1130px] mx-auto px-4 md:px-0 mb-12">
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-black border-l-4 border-[#c90000] pl-3">Latest Articles</h2>
@@ -128,7 +129,7 @@
                             <a href="#">{{ $article->titile }}</a>
                         </h3>
                         <p class="text-gray-600 text-sm line-clamp-3 mb-4">{{ Str::limit(html_entity_decode(strip_tags($article->content)), 150) }}</p>
-                        <a href="#" class="text-[#c90000] text-sm font-medium hover:underline">Read More →</a>
+                        <a href="{{ route('details', $article->slug) }}" class="text-[#c90000] text-sm font-medium hover:underline">Read More →</a>
                     </div>
                 </div>
             @endforeach
@@ -136,6 +137,7 @@
 
        {{ $articles->links() }}
     </section>
+    @endif
 
     <x-footer />
     @push('scripts')

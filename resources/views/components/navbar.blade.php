@@ -5,6 +5,7 @@
 
         <form action="{{ route('search') }}" method="GET"
             class="hidden md:flex items-center bg-white text-black rounded-lg overflow-hidden w-1/3">
+            @csrf
             <input type="text" name="q" class="p-2 w-full focus:outline-none" placeholder="Cari berita...">
             <button type="submit" class="p-2 bg-black text-white">Cari</button>
         </form>
@@ -51,10 +52,11 @@
         <button id="close-sidebar" class="text-2xl">&times;</button>
     </div>
 
-    <div class="mb-4">
-        <input type="text" class="p-2 w-full border border-gray-300 rounded-lg" placeholder="Cari berita...">
-        <button class="p-2 bg-black text-white w-full mt-2 rounded-lg">Cari</button>
-    </div>
+    <form action="{{ route('search') }}" class="mb-4" method="GET">
+        @csrf
+        <input name="q" type="text" class="p-2 w-full border border-gray-300 rounded-lg" placeholder="Cari berita...">
+        <button type="submit" class="p-2 bg-black text-white w-full mt-2 rounded-lg">Cari</button>
+    </form>
 
     <div class="border-t border-gray-200 my-4"></div>
 

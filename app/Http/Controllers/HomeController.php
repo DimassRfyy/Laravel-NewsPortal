@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\ArticleNews;
 use App\Models\Category;
 use App\Models\HashTag;
+use App\Models\NewsComment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -71,8 +73,15 @@ class HomeController extends Controller
         return view('pages.writer', compact('user','articles','popularArticles'));
     }
 
-    public function details() {
-        return view('pages.details');
+    public function details(ArticleNews $articleNews) {
+        $articleNews->load(['category', 'user', 'newsComments', 'hashTags']);
+        $trendingHashtags = HashTag::where('is_trending', true)->latest()->take(5)->get();
+        $relatedArticles = ArticleNews:: where('category_id', $articleNews->category_id)
+        ->where('id', '!=', $articleNews->id)
+        ->latest()
+        ->take(4)
+        ->get();
+        return view('pages.details', compact('articleNews','trendingHashtags','relatedArticles'));
     }
 
     public function search(Request $request) {
@@ -88,5 +97,16 @@ class HomeController extends Controller
         }
 
         return view('pages.search', compact('articles', 'query'));
+    }
+
+    public function comment(Request $request) {
+        $data = $request->validate([
+            'message' => 'required|string|max:255',
+        ]);
+        $data['user_id'] = Auth::user()->id;
+        $data['article_news_id'] = $request->article_news_id;
+
+        NewsComment::create($data);
+        return redirect()->back()->with('success', 'Comment posted successfully.');
     }
 }

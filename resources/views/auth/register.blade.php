@@ -41,13 +41,13 @@
             
             <!-- Phone Number (added from your custom design) -->
             <div>
-                <x-input-label for="phone" :value="__('No Telepon')" class="block text-sm font-medium text-gray-600" />
-                <x-text-input id="phone" class="w-full p-3 mt-1 border rounded-lg focus:ring focus:ring-red-600 focus:outline-none bg-gray-100" 
+                <x-input-label for="telp" :value="__('No Telepon')" class="block text-sm font-medium text-gray-600" />
+                <x-text-input id="telp" class="w-full p-3 mt-1 border rounded-lg focus:ring focus:ring-red-600 focus:outline-none bg-gray-100" 
                              type="tel" 
-                             name="phone" 
-                             :value="old('phone')" 
+                             name="telp" 
+                             :value="old('telp')" 
                              required />
-                <x-input-error :messages="$errors->get('phone')" class="mt-2" />
+                <x-input-error :messages="$errors->get('telp')" class="mt-2" />
             </div>
 
             <!-- Password -->
