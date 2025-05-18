@@ -75,7 +75,18 @@ class HomeController extends Controller
         return view('pages.details');
     }
 
-    public function search() {
-        return view('pages.search');
+    public function search(Request $request) {
+        $query = $request->input('q');
+        $articles = [];
+
+        if ($query) {
+            $articles = ArticleNews::with(['category', 'hashTags', 'user'])
+                ->where('title', 'like', "%{$query}%")
+                ->orWhere('content', 'like', "%{$query}%")
+                ->latest()
+                ->paginate(6);
+        }
+
+        return view('pages.search', compact('articles', 'query'));
     }
 }
