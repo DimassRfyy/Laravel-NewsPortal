@@ -13,24 +13,56 @@ class HomeController extends Controller
     public function index() {
         $categories = Category::latest()->get();
         $hashtags = HashTag::latest()->get();
-        $newsWriters = User::where('role', 'writer')->with(['articleNews'])->latest()->get();
-        $populerArticles = ArticleNews::with(['category', 'hashTags', 'user'])->where('is_popular', true)->latest()->take(7)->get();
-        $newsArticles = ArticleNews::with(['category', 'hashTags', 'user'])->latest()->take(7)->get();
-        $technologyArticles = ArticleNews::with(['category', 'hashTags', 'user'])->where('category_id', 7)->latest()->get();
+
+        $newsWriters = User::where('role', 'writer')
+            ->with(['articleNews'])
+            ->latest()->get();
+
+        $populerArticles = ArticleNews::with(['category', 'hashTags', 'user'])
+        ->where('is_popular', true)
+        ->latest()->take(7)->get();
+
+        $newsArticles = ArticleNews::with(['category', 'hashTags', 'user'])
+            ->latest()->take(7)->get();
+        $technologyArticles = ArticleNews::with(['category', 'hashTags', 'user'])
+        ->where('category_id', 7)->latest()->get();
+
         return view('pages.home', compact('categories', 'hashtags','newsWriters','newsArticles','technologyArticles','populerArticles'));
     }
 
     public function category(Category $category) {
-        $articles = ArticleNews::with(['category', 'hashTags', 'user'])->where('category_id', $category->id)->latest()->get();
+        $articles = ArticleNews::with(['category', 'hashTags', 'user'])
+        ->where('category_id', $category->id)
+        ->latest()->get();
+
         $popularArticles = ArticleNews::with(['category', 'hashTags', 'user'])
         ->where('category_id', $category->id)
         ->where('is_popular', true)
         ->latest()->take(5)->get();
+        
         return view('pages.category', compact('category','articles','popularArticles'));
     }
 
-    public function hashtag() {
-        return view('pages.hashtag');
+    public function hashtag(HashTag $hashtag) {
+        $articles = ArticleNews::with(['category', 'hashTags', 'user'])
+        ->whereHas('hashTags', function($query) use ($hashtag) {
+            $query->where('slug', $hashtag->slug);
+        })
+        ->latest()
+        ->paginate(3);
+        
+        $popularArticles = ArticleNews::with(['category', 'hashTags', 'user'])
+        ->whereHas('hashTags', function($query) use ($hashtag) {
+            $query->where('slug', $hashtag->slug);
+        })
+        ->where('is_popular', true)
+        ->latest()
+        ->take(5)
+        ->get();
+
+        $trendingHashtags = HashTag::where('is_trending', true)->latest()->take(5)->get();
+
+        return view('pages.hashtag', compact('hashtag','articles','trendingHashtags','popularArticles'));
     }
 
     public function writer(User $user) {

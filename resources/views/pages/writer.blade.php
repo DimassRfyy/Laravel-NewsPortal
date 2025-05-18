@@ -68,26 +68,28 @@
         <div class="flex justify-between items-center mb-6">
             <h2 class="text-2xl font-bold text-black border-l-4 border-[#c90000] pl-3">Populer Article</h2>
         </div>
-        <div class="relative w-full h-96 md:h-[450px] rounded-2xl overflow-hidden">
-            <img src="{{ Storage::url($popularArticles->thumbnail) }}" class="absolute w-full h-full object-cover"
-                alt="Latest Article" />
-            <div class="w-full h-full bg-gradient-to-b from-transparent to-black absolute z-10"></div>
-            <div class="absolute bottom-0 p-6 text-white z-20 w-full md:w-2/3">
-                <div class="flex items-center gap-2 text-sm mb-2">
-                    <span class="bg-[#c90000] px-2 py-1 rounded-md">{{ $popularArticles->category->name }}</span>
-                    <span>{{ $popularArticles->created_at->format('M d, Y') }}</span>
+        @if ($popularArticles)
+            <div class="relative w-full h-96 md:h-[450px] rounded-2xl overflow-hidden">
+                <img src="{{ Storage::url($popularArticles->thumbnail) }}" class="absolute w-full h-full object-cover"
+                    alt="Latest Article" />
+                <div class="w-full h-full bg-gradient-to-b from-transparent to-black absolute z-10"></div>
+                <div class="absolute bottom-0 p-6 text-white z-20 w-full md:w-2/3">
+                    <div class="flex items-center gap-2 text-sm mb-2">
+                        <span class="bg-[#c90000] px-2 py-1 rounded-md">{{ $popularArticles->category->name }}</span>
+                        <span>{{ $popularArticles->created_at->format('M d, Y') }}</span>
+                    </div>
+                    <a href="#"
+                        class="font-bold text-xl md:text-3xl hover:underline transition-all duration-300 block mb-4">
+                        {{ $popularArticles->title }}
+                    </a>
+                    <p class="text-gray-200 mb-4 hidden md:block">{{ Str::limit(html_entity_decode(strip_tags($popularArticles->content)), 150) }}</p>
+                    <a href="#"
+                        class="inline-block bg-[#c90000] text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors">
+                        Read More
+                    </a>
                 </div>
-                <a href="#"
-                    class="font-bold text-xl md:text-3xl hover:underline transition-all duration-300 block mb-4">
-                    {{ $popularArticles->title }}
-                </a>
-                <p class="text-gray-200 mb-4 hidden md:block">{{ Str::limit(html_entity_decode(strip_tags($popularArticles->content)), 150) }}</p>
-                <a href="#"
-                    class="inline-block bg-[#c90000] text-white px-4 py-2 rounded-lg hover:bg-red-800 transition-colors">
-                    Read More
-                </a>
             </div>
-        </div>
+        @endif
     </section>
 
     <section id="writer-articles" class="max-w-[1130px] mx-auto px-4 md:px-0 mb-12">

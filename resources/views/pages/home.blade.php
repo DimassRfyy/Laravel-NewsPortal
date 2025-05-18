@@ -157,7 +157,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($hashtags as $hashtag)
                         <div class="swiper-slide">
-                            <a href="/hashtag"
+                            <a href="{{ route('hashtag', $hashtag->slug) }}"
                                 class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#c90000]">
                                 <div class="w-6 h-6 flex shrink-0">
                                     <img src="assets/images/icons/hashtag.png" alt="icon" />

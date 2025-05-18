@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/category/{category:slug}', [HomeController::class, 'category'])->name('category');
-Route::get('/hashtag', [HomeController::class, 'hashtag'])->name('hashtag');
+Route::get('/hashtag/{hashtag:slug}', [HomeController::class, 'hashtag'])->name('hashtag');
 Route::get('/writer/{user:id}', [HomeController::class, 'writer'])->name('writer');
 Route::get('/details', [HomeController::class, 'details'])->name('details');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
