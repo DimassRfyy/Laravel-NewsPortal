@@ -19,8 +19,17 @@ use Illuminate\Support\Facades\Auth;
 class ArticleNewsResource extends Resource
 {
     protected static ?string $model = ArticleNews::class;
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    {
+        if (Auth::user()->role === 'admin') {
+            return parent::getEloquentQuery();
+        }
+        return parent::getEloquentQuery()->where('user_id', auth()->id());
+    }
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    
+    protected static ?string $navigationGroup = 'News Management';
 
     public static function form(Form $form): Form
     {
@@ -108,10 +117,10 @@ class ArticleNewsResource extends Resource
                 ActionGroup::make([
                     ActionGroup::make([
                         Tables\Actions\ViewAction::make(),
-                        Tables\Actions\EditAction::make()->visible(fn () => Auth::user()->role === 'admin'),
+                        Tables\Actions\EditAction::make(),
                     ])
                         ->dropdown(false),
-                    Tables\Actions\DeleteAction::make()->visible(fn () => Auth::user()->role === 'admin'),
+                    Tables\Actions\DeleteAction::make(),
                 ])
                 ->icon('heroicon-m-bars-3')
             ])

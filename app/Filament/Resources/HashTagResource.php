@@ -11,13 +11,29 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class HashTagResource extends Resource
 {
     protected static ?string $model = HashTag::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-hashtag';
+    protected static ?string $navigationGroup = 'News Management';
+    public static function canCreate(): bool
+    {
+        return Auth::user()->role === 'admin';
+    }
+    public static function canEdit(Model $record): bool
+    {
+        return Auth::user()->role === 'admin';
+    }
+
+    public static function canDelete(Model $record): bool
+    {
+        return Auth::user()->role === 'admin';
+    }
 
     public static function form(Form $form): Form
     {
