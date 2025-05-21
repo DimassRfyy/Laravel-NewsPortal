@@ -9,5 +9,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/articles', [ArticleNewsController::class,'index'])->name('articles.index');
+Route::get('/articles', [ArticleNewsController::class,'index']);
+Route::get('/article/{articleNews:slug}', [ArticleNewsController::class,'show']);
+
 Route::get('/categories', [CategoryController::class,'index'])->name('categories.index');
+Route::get('/category/{category:slug}',[CategoryController::class,'show']);

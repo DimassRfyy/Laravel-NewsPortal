@@ -18,4 +18,11 @@ class CategoryController extends Controller
 
         return CategoryResource::collection($categories->get());
     }
+    
+     public function show(Category $category) {
+        $category->load(['articleNews','articleNews.user','articleNews.hashtags']);
+        $category->loadCount(['articleNews']);
+
+        return new CategoryResource($category);
+    }
 }
