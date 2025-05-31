@@ -75,12 +75,12 @@ php artisan serve
 ### User Interface
 
 [Place screenshot of the news portal homepage here]
-![Homepage Screenshot](path/to/homepage-screenshot.png)
+![Homepage Screenshot](https://github.com/DimassRfyy/Laravel-NewsPortal/blob/main/public/assets/images/thumbnails/preview.jpeg?raw=true)
 
 ### Admin Panel
 
 [Place screenshot of the Filament admin panel here]
-![Admin Panel Screenshot](path/to/admin-panel-screenshot.png)
+![Admin Panel Screenshot](https://github.com/DimassRfyy/Laravel-NewsPortal/blob/main/public/assets/images/thumbnails/preview-admin.png?raw=true)
 
 ### Features
 
